@@ -1,1 +1,45 @@
 # learnkubernetes
+
+## Project
+- zodiac-app
+
+Sample application to create a docker container.
+This app return your sun sign based on the month and day passed in the URL. See Uage below.
+
+### Usage 
+
+http://localhost:8080/zodiac/{month}/{day}
+
+http://localhost:8080/zodiac/06/01 should return Gemini
+
+- K8s
+
+Kubernetes configuration
+
+1. POD
+To create a POD, Run this command -> kubectl apply -f zodiac-app-pod.yml
+
+To see the pod status, Run this command -> kubectl get pods -o wide
+
+
+2. Service
+
+2.1. Imperative Way
+
+Run this command -> kubectl expose pod zodiac-pod --name=zodiac-svc-i --target-port=8080 --type=NodePort
+
+To see the service status Run this command -> kubectl get svc
+ 
+Note the IP and port and run the below command to access your zodiac application
+
+curl http://localhost:32128/zodiac/06/01
+
+2.2. Declarative Way
+
+Run this command -> kubectl apply -f zodiac-app-service.yml
+
+To see the service status Run this command -> kubectl get svc
+
+Note the IP and port and run the below command to access your zodiac application
+
+curl http://localhost:31111/zodiac/07/02
