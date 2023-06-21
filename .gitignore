@@ -25,5 +25,7 @@ replay_pid*
 
 # Maven
 .mvn
+mvnw
+mvnw.cmd
 **/mvn/
 **/mvn/*

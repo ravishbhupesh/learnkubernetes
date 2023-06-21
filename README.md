@@ -17,6 +17,7 @@ http://localhost:8080/zodiac/06/01 should return Gemini
 Kubernetes configuration
 
 1. POD
+
 To create a POD, Run this command -> kubectl apply -f zodiac-app-pod.yml
 
 To see the pod status, Run this command -> kubectl get pods -o wide
@@ -43,3 +44,12 @@ To see the service status Run this command -> kubectl get svc
 Note the IP and port and run the below command to access your zodiac application
 
 curl http://localhost:31111/zodiac/07/02
+
+3. Deployments
+
+To create a deployment, Run this command -> kubectl apply -f zodiac-app-deployment.yml
+
+To see output, Run this command -> kubectl get deployments
+
+optionally you can also run -> kubectl get all
+This command will show everything pod, service, deployment, replica sets etc.
