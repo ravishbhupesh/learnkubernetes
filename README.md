@@ -53,3 +53,16 @@ To see output, Run this command -> kubectl get deployments
 
 optionally you can also run -> kubectl get all
 This command will show everything pod, service, deployment, replica sets etc.
+
+# Local Kubernetes Dashboard
+
+Follow this link -> https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+Always run this command to access dashboard -> kubectl proxy
+
+Get the token using this command -> kubectl -n kubernetes-dashboard create token admin-user
+
+Login url -> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
+
+kubectl -n kubernetes-dashboard create token admin-user
