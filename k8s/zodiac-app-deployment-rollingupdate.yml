@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zodiac-deployment
+  labels:
+    app: zodiac-app
+spec:
+  replicas: 4
+  minReadySeconds: 5
+  progressDeadlineSeconds: 60
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: zodiac-app
+  template:
+    metadata:
+      labels:
+        app: zodiac-app
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: zodiac-rest-app
+          image: ravishbhupesh/zodiac-app:2.0
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080

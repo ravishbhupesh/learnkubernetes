@@ -6,6 +6,10 @@
 Sample application to create a docker container.
 This app return your sun sign based on the month and day passed in the URL. See Uage below.
 
+Ro create docker images use the following command from the root folder -> docker build -t ravishbhupesh/zodiac-app:1.0 .
+
+docker build -t <TAG_NAME>:<VERSION> .
+
 ### Usage 
 
 http://localhost:8080/zodiac/{month}/{day}
@@ -53,6 +57,14 @@ To see output, Run this command -> kubectl get deployments
 
 optionally you can also run -> kubectl get all
 This command will show everything pod, service, deployment, replica sets etc.
+
+
+### Rolling Update Deployment
+
+### Canary Deployment
+
+### Blue Green Deployment
+
 
 # Local Kubernetes Dashboard
 
