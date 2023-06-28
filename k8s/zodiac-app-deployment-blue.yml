@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zodiac-deployment
+  labels:
+    app: zodiac-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: zodiac-app
+      role: blue
+  template:
+    metadata:
+      labels:
+        app: zodiac-app
+        role: blue
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: zodiac-rest-app
+          image: ravishbhupesh/zodiac-app:1.0
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
