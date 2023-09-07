@@ -4,9 +4,9 @@
 - zodiac-app
 
 Sample application to create a docker container.
-This app return your sun sign based on the month and day passed in the URL. See Uage below.
+This app return your sun sign based on the month and day passed in the URL. See Usage below.
 
-Ro create docker images use the following command from the root folder -> docker build -t ravishbhupesh/zodiac-app:1.0 .
+To create docker image use the following command from the root folder -> docker build -t ravishbhupesh/zodiac-app:1.0 .
 
 docker build -t <TAG_NAME>:<VERSION> .
 

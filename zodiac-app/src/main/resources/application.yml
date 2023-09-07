@@ -1,0 +1,5 @@
+app:
+  zodiac:
+    name: Zodiac App
+    version: v2
+    message: This message is from application.yml file

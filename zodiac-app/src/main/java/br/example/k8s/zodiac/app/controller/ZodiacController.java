@@ -1,20 +1,23 @@
 package br.example.k8s.zodiac.app.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ZodiacController {
 
-    @Value("#{'${application.name}'}")
+    @Value("#{'${app.zodiac.name}'}")
     private String appName;
 
-    @Value("#{'${application.version}'}")
+    @Value("#{'${app.zodiac.version}'}")
     private String version;
+    
+    @Value("#{'${app.zodiac.message}'}")
+    private String message;
 
-    @RequestMapping(value = "/zodiac/{month}/{day}", produces = {"application/json"})
+    @GetMapping(value = "/zodiac/{month}/{day}", produces = {"application/json"})
     public String getSunSign(@PathVariable("month") int month, @PathVariable("day") int day) {
 
         String sunSign = null;
@@ -50,6 +53,7 @@ public class ZodiacController {
                 "\t\"application\": \"" + appName + "\",\n" +
                 "\t\"version\": \"" + version + "\",\n" +
                 "\t\"response\": \"" + sunSign + "\"\n" +
+                "\t\"message\": \"" + message + "\"\n" +
                 "}";
     }
 }
